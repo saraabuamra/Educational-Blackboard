@@ -1,0 +1,345 @@
+<!doctype html>
+<html>
+<head>
+    <title>السبورة</title>
+    <link rel="icon" href="images/icon.png"  type="image/x-icon" id="favicon">
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.min.js"></script>
+    <!-- <script src="https://unpkg.com/fabric@latest/dist/fabric.js"></script> -->
+    <script src="https://unpkg.com/fabric@latest/src/mixins/eraser_brush.mixin.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.2/xlsx.full.min.js"></script>
+
+</head>
+<body style='margin:0' >
+    <div id="toolbar">
+        <div id="select">
+            <img src="images/select.png" width="50" height="50" />
+        </div>
+        <div id="penciltime">
+            <img src="images/penciltime.png" width="50" height="50" />
+        </div>
+        <div id="pencil">
+            <img src="images/pencil.png" width="50" height="50" />
+        </div>
+        <div id="text">
+            <img src="images/text.png" width="50" height="50" />
+        </div>
+       
+        <div id="file">
+            <img src="images/file.png" width="50" height="50" />
+        </div>
+        
+        <div id="shape">
+            <img src="images/shape.png" width="50" height="50" />
+        </div>
+        <div id="image">
+            <img src="images/image.png" width="50" height="50" />
+            <input type="file" id="imageUploadInput" accept="image/*" style="display: none;">
+        </div>
+        <div id="eraseall">
+            <img src="images/eraseall.png" width="50" height="50" />
+        </div>
+        <div id="erasepart">
+            <img src="images/erasepart.png" width="50" height="50" />
+        </div>
+        <div id="lock">
+            <img id="lockimage" src="images/unlock.png" width="50" height="50" />
+        </div>
+        <div id="addUndo">
+            <img id="undo" src="images/undo.png" width="50" height="50" />
+            </div>
+        <div id="addRedo">
+            <img id="redo" src="images/redo.png" width="50" height="50" />
+        </div>   
+    </div>
+    <div id="toolbar2">
+        <div id="zoomIn">
+            <img id="zoom-in" src="images/zoomin.png" width="50" height="50" />
+        </div>
+        <div id="zoomOut">
+            <img id="zoom-out" src="images/zoomout.png" width="50" height="50" />
+        </div>
+    </div>
+
+    <!-- مربع الحوار لتسمية الفيديو -->
+    <div id="dialog">
+        <label for="filenameInput">اسم الملف:</label>
+        <input type="text" id="filenameInput" placeholder="اسم الملف">
+        <br>
+        <button id="confirmFilename">تأكيد</button>
+        <button id="cancelRecordingButton">اغلاق</button>
+    </div>
+    <div id="toolbarpdf" class="overlaypdf">
+        <h4>اختر الصفحات التي تريد عرضها</h4>
+        <div id="pagePreviews" >
+        </div>
+        <div id="pagePreviewContainer" class="page-preview-container">
+            <!-- Page previews will be added here -->
+       
+        <h5>الصفحات</h5>
+        </div>
+        <button id="addPageButton" disabled>إضافة</button>
+    </div>
+    <div id="toolbarexcel" class="overlayexcel">
+        <h4>اختر الصفحات التي تريد عرضها</h4>
+        <a id="renderButton">إضافة</a>
+        <div id="excelSheetsContainer"></div>
+        <h5>الصفحات</h5>
+    </div>
+    <div id="toolbarcolor" class="overlaycolor">
+        <img id="brush" src="images/brush.PNG" width="290" height="40">
+        <div id="boxsize">
+            <input type="range" id="brushSize" min="1" max="20" value="2">
+            <h5 id="size">الحجم</h5>
+        </div>
+        <div id="boxcolor">
+            <div class="color-circle" style="background-color: #58595B;"></div>
+            <div class="color-circle" style="background-color: #808285;"></div>
+            <div class="color-circle" style="background-color: #A7A9AC;"></div>
+            <div class="color-circle" style="background-color: #D1D3D4;"></div>
+            <div class="color-circle" style="background-color: #FFFFFF;"></div>
+            <div class="color-circle" style="background-color: #000000;"></div>
+            <div class="color-circle" style="background-color: #FFE600;"></div>
+            <div class="color-circle" style="background-color: #FFCE00;"></div>
+            <div class="color-circle" style="background-color: #FFAA00;"></div>
+            <div class="color-circle" style="background-color: #FF5500;"></div>
+            <div class="color-circle" style="background-color: #E61B1B;"></div>
+            <div class="color-circle" style="background-color: #B31564;"></div>
+            <div class="color-circle" style="background-color: #3D00B8;"></div>
+            <div class="color-circle" style="background-color: #004DE6;"></div>
+            <div class="color-circle" style="background-color: #00AACC;"></div>
+            <div class="color-circle" style="background-color: #008055;"></div>
+            <div class="color-circle" style="background-color: #26E600;"></div>
+            <div class="color-circle" style="background-color: #A2E61B;"></div>
+            <div class="color-circle" style="background-color: #613D30;"></div>
+            <div class="color-circle" style="background-color: #8E562E;"></div>
+            <div class="color-circle" style="background-color: #BB9167;"></div>
+            <div class="color-circle" style="background-color: #F7D7C4;"></div>
+            <div class="color-circle" style="background-color: #600080;"></div>
+            <div class="color-circle" style="background-color: #6600CC;"></div>
+            <div class="color-circle" style="background-color: #BCB3FF;"></div>
+            <div class="color-circle" style="background-color: #80D6FF;"></div>
+            <div class="color-circle" style="background-color: #80FF9E;"></div>
+            <div class="color-circle" style="background-color: #FFFF80;"></div>
+            <div class="color-circle" style="background-color: #FFC680;"></div>
+            <div class="color-circle" style="background-color: #FF80FF;"></div>
+            <h5 id="color">اللون</h5>
+        </div>
+        
+     
+        
+    </div>
+    <div id="toolbarshape" class="overlayshape">
+        <div id="boxcolor1">
+            <div class="color-circle" style="background-color: #58595B;"></div>
+            <div class="color-circle" style="background-color: #808285;"></div>
+            <div class="color-circle" style="background-color: #A7A9AC;"></div>
+            <div class="color-circle" style="background-color: #D1D3D4;"></div>
+            <div class="color-circle" style="background-color: #FFFFFF;"></div>
+            <div class="color-circle" style="background-color: #000000;"></div>
+            <div class="color-circle" style="background-color: #FFE600;"></div>
+            <div class="color-circle" style="background-color: #FFCE00;"></div>
+            <div class="color-circle" style="background-color: #FFAA00;"></div>
+            <div class="color-circle" style="background-color: #FF5500;"></div>
+            <div class="color-circle" style="background-color: #E61B1B;"></div>
+            <div class="color-circle" style="background-color: #B31564;"></div>
+            <div class="color-circle" style="background-color: #3D00B8;"></div>
+            <div class="color-circle" style="background-color: #004DE6;"></div>
+            <div class="color-circle" style="background-color: #00AACC;"></div>
+            <div class="color-circle" style="background-color: #008055;"></div>
+            <div class="color-circle" style="background-color: #26E600;"></div>
+            <div class="color-circle" style="background-color: #A2E61B;"></div>
+            <div class="color-circle" style="background-color: #613D30;"></div>
+            <div class="color-circle" style="background-color: #8E562E;"></div>
+            <div class="color-circle" style="background-color: #BB9167;"></div>
+            <div class="color-circle" style="background-color: #F7D7C4;"></div>
+            <div class="color-circle" style="background-color: #600080;"></div>
+            <div class="color-circle" style="background-color: #6600CC;"></div>
+            <div class="color-circle" style="background-color: #BCB3FF;"></div>
+            <div class="color-circle" style="background-color: #80D6FF;"></div>
+            <div class="color-circle" style="background-color: #80FF9E;"></div>
+            <div class="color-circle" style="background-color: #FFFF80;"></div>
+            <div class="color-circle" style="background-color: #FFC680;"></div>
+            <div class="color-circle" style="background-color: #FF80FF;"></div>
+            <h5 id="color1">اللون</h5>
+        </div>
+        <div id="boxshape">
+            <div id="square">
+                <img src="images/square.png" width="40" height="40" />
+            </div>
+            <div id="triangle">
+                <img src="images/triangle.png" width="40" height="40" />
+            </div>
+            <div id="star">
+                <img  src="images/star.png" width="40" height="40" />
+            </div>
+            <div id="circle">
+                <img src="images/circle.png" width="40" height="40" />
+            </div>
+            <div id="linearrow">
+                <img src="images/linearrow.png" width="40" height="20" />
+            </div>
+            <div id="lineshape">
+                <img src="images/line.png" width="40" height="2" />
+            </div>
+            <div id="linetwoarrow">
+                <img src="images/linetwoarrow.png" width="40" height="20" />
+            </div> 
+        </div>
+        
+    </div>
+
+    <div id="toolbarfile" class="overlayfile">
+        <div id="boxfile">
+            <div id="word">
+                <img src="images/word.png" width="40" height="50" />
+            </div>
+            <div id="pdf">
+                <img src="images/pdf.png" width="40" height="50" />
+                <input type="file" id="pdfInput" accept=".pdf" style="display: none;">
+            </div>
+            <div id="textfile">
+                <img  src="images/textfile.png" width="50" height="50" />
+            </div>
+            <div id="excel">
+                <img src="images/excel.png" width="50" height="50" />
+                <input type="file" id="excelFileInput" accept=".xlsx" style="display: none;">
+            </div>
+            <div id="powerpoint">
+                <img src="images/powerpoint.png" width="50" height="50" />
+            </div>
+            <div id="link"  onclick="showModal()">
+                <img src="images/link.png" width="50" height="50" />
+            </div>
+            <div id="audio">
+                <input type="file" id="audioFileInput" accept=".mp3, .mp2, .wav, .mpc, .ape, .flac, .aiff, .ogg" style="display: none;">
+                <img src="images/audio.png" width="50" height="50" />
+            </div>
+           
+             <!-- Modal Content -->
+             <div class="modal" id="linkModal">
+                 <span class="close-btn" onclick="closeModal()">&times;</span>
+                 <h4>عنوان الرابط</h4>
+                 <div class="form-control" id="formtitle">
+                     <input type="text" class="form-control" id="linkTitle" placeholder="العنوان">
+                 </div>
+                 <h3>الرابط</h3>
+                 <div class="form-control" id="formlink">
+                     <input type="text" class="form-control" id="linkURL" placeholder="URL">
+                 </div>
+                 <a type="button" class="save-btn" onclick="addLink()">تم</a>
+             </div>
+        </div>
+        
+    </div>
+    <audio id="myAudio">
+        <source id="audioSource" src="" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <div id="toolbaraudio" class="overlayaudio">
+        <div id="driver"></div>
+        <a id="close">x</a>
+        <div id="audio-controls">
+            <img src="images/audio_img.png" width="80px" height="40px">
+            <a id="playButton"><img src="images/play_audio.png" width="68px" height="68px"></a>
+            <a id="pauseButton"><img  src="images/pause_audio.png" width="68px" height="68px"></a>
+            <img src="images/audio_img.png" width="80px" height="40px">
+            <button id="seekStartButton" style="display: none;">Seek Start</button>
+            <button id="seekEndButton" style="display: none;">Seek End</button>  
+        </div>
+        <div class="custom-slider-container">
+            <!-- Slider background -->
+            <div id="startTime">0:00</div>
+            &numsp;&numsp;
+            <div class="custom-slider">
+                <div class="slider-bg"></div>
+                <!-- Slider knob (circle) -->
+                <div class="slider-knob"></div>
+            </div>
+            &numsp;&numsp;
+            <div id="endTime">0:00</div>
+            
+        </div>
+        </div>
+  
+  
+    <div id="toolbartext" class="overlaytext">
+        <div id="boxtext">
+            <div class="counter">
+                <span class="minus"><img src="images/minus.png" width="15" height="15"></span>
+                <input id="counterInput"  type="text" value="20" />
+                <span class="plus"><img src="images/plus.png" width="15" height="15"></span>
+                <span id="sizetext">الحجم</span>
+            </div>
+            <div class="counter1">
+                <select id="fontFamilySelect">
+                <option value="0">النوع</option>
+                <option value="Arial">Arial</option>
+                <option value="Comic Sans MS">Comic Sans MS</option>
+                <option value="Verdana">Verdana</option>
+                <option value="Tahoma">Tahoma</option>
+                <option value="Trebuchet MS">Trebuchet MS</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Garamond">Garamond</option>
+                <option value="Courier New">Courier New</option>
+                <option value="Brush Script MT">Brush Script MT</option>
+            </select> 
+        </div>
+        <div class="counter2">
+            <span id="normal"><img src="images/normal.png" width="30" height="30"></span>
+            <span id="bold"><img src="images/bold.png" width="30" height="30"></span>
+            <span id="italic"><img src="images/italic.png" width="30" height="30"></span>
+            <span id="underline"><img src="images/underline.png" width="30" height="30"></span>
+        </div>
+            
+        </div>
+          
+        <div id="boxcolor2">
+            <div class="color-circle" style="background-color: #BCB3FF;"></div>
+            <div class="color-circle" style="background-color: #80D6FF;"></div>
+            <div class="color-circle" style="background-color: #80FF9E;"></div>
+            <div class="color-circle" style="background-color: #FFFF80;"></div>
+            <h5 id="color2">اللون</h5>
+        </div>
+        
+    </div>     
+    <div id="video">
+        <div id="addVideo">
+        <img id="startRecording" src="images/video.png" width="79" height="22" />
+        </div>
+        <div id="stopVideo">
+        <img id="stopRecording"  src="images/stopvideo.svg" />
+        </div> 
+        <div id="pauseVideo">
+            <img id="pauseRecording"  src="images/pausevideo.svg" />
+            </div> 
+        </div>
+
+        <div id="recentColorsContainer" style="z-index: 1000;">
+            
+        </div>
+        <div id="exist">
+            <div id="addexist">
+            <img src="images/exist.png" width="50" height="50" />
+            </div>
+        </div>
+        <div id="customAlert" class="custom-alert">
+            <p>هل تريد الخروج بالفعل ؟</p>
+            <button id="cancelExit">لا</button>
+            <button id="confirmExit">نعم</button>
+            <p id="text">سيتم إزالة كل شيء في السبورة</p>
+        </div>
+        <div id="grayBackground"></div>
+    <!-- <div class="content"> -->
+        <canvas id="canvas" width="100%" height="700px"  >
+        </canvas>
+    <!-- </div> -->
+    
+    <script src="js/main.js"></script>
+    <script src="js/fabricfile.js"></script>
+</body>
+</html>

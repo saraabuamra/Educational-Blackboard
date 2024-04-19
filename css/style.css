@@ -1,0 +1,1055 @@
+*{
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    font-family: sans-serif;
+
+    user-select: none;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+}
+
+
+#canvas {
+    cursor: auto; /* Change the cursor style to a hand pointer */
+}
+
+#toolbar{
+    z-index: 1;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    padding: 13px;
+    width: 800px;
+    height: 83px;
+    border-radius: 20px;
+    position: fixed;
+    right: 0;
+    margin: 10px;
+    bottom: 0;
+    background-color: #F6F6F6;
+} 
+
+#video{
+    height: 83px;
+    padding: 10px;
+    width: fit-content;
+    position: fixed;
+    right: 0;
+    z-index: 1;
+    top: 0;
+    color: black;
+} 
+#exist{
+    height: 83px;
+    padding: 10px;
+    width: fit-content;
+    position: fixed;
+    left: 0;
+    z-index: 1;
+    top: 0;
+    color: black;
+} 
+
+#toolbar2{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    height: 83px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding: 17px 15px;
+    width: 180px;
+    border-radius: 20px;
+    position: fixed;
+    left: 0;
+    margin: 10px ;
+    z-index: 1;
+    bottom: 0;
+    background-color: #F6F6F6;
+} 
+
+
+#eraser{
+    float: left;
+    margin-right: 30px;
+    cursor: pointer;
+    
+}
+#eraser:hover { opacity: 0.5; }
+
+#boxshape{
+    display: flex;
+    flex-direction: row-reverse;
+    position: relative;
+    justify-content: space-around;
+    bottom: 80px;
+    right: 10px;
+}
+
+#boxfile{
+    display: flex;
+    flex-direction: row-reverse;
+    position: relative;
+    justify-content: space-around;
+    top: 5px;
+    right: 10px;
+}
+#boxtext{
+    display: flex;
+    flex-direction: row-reverse;
+    position: relative;
+    justify-content: space-around;
+    bottom: 80px;
+    right: 10px;
+}
+
+#square:hover {
+    opacity: 0.5;
+    cursor: pointer;
+ }
+ #word:hover {
+    opacity: 0.5;
+    cursor: pointer;
+ }
+
+#circle:hover { opacity: 0.5;cursor: pointer; }
+
+#excel:hover { opacity: 0.5;cursor: pointer; }
+
+#pdf:hover { opacity: 0.5;cursor: pointer; }
+
+#triangle:hover { opacity: 0.5;cursor: pointer; }
+#textfile:hover { opacity: 0.5; cursor: pointer;}
+
+#star:hover { opacity: 0.5; cursor: pointer;}
+
+#normal:hover { opacity: 0.5; cursor: pointer;}
+#bold:hover { opacity: 0.5; cursor: pointer;}
+#italic:hover { opacity: 0.5; cursor: pointer;}
+#underline:hover { opacity: 0.5; cursor: pointer;}
+
+#lineshape{
+    margin-top: 10px;
+    cursor: pointer;
+    
+}
+#lineshape:hover { opacity: 0.5; }
+
+
+#link:hover {
+  opacity: 0.5; 
+  cursor: pointer;
+}
+#audio:hover {
+   opacity: 0.5; 
+   cursor: pointer;
+ }
+
+#linearrow{
+    margin-top: 10px;
+    cursor: pointer;
+    
+}
+#linearrow:hover { opacity: 0.5; }
+
+#powerpoint:hover {
+     opacity: 0.5;
+     cursor: pointer;
+     }
+
+#linetwoarrow{
+    margin-top: 10px;
+    cursor: pointer;
+    
+}
+#linetwoarrow:hover { opacity: 0.5; }
+
+#clearCanvas{
+    margin-left: 30px;
+    cursor: pointer;
+    
+}
+
+#select{
+    cursor: pointer;
+}
+
+#select:hover { opacity: 0.5; }
+
+#text{
+    cursor: pointer;
+    
+}
+
+#text:hover { opacity: 0.5; }
+
+
+#file{
+    cursor: pointer;
+    
+}
+
+#file:hover { opacity: 0.5; }
+
+#addVideo{
+    float: right;
+    display: block;
+    cursor: pointer;
+    
+}
+#addVideo:hover { opacity: 0.5; }
+
+#stopVideo{
+    float: right;
+    margin-bottom: 40px;
+    display: none;
+    cursor: pointer;
+    
+}
+#stopVideo:hover { opacity: 0.5; }
+
+#pauseVideo{
+    float: right;
+    margin-bottom: 40px;
+    margin-right: 10px;
+    display: none;
+    cursor: pointer;
+    
+}
+#pauseVideo:hover { opacity: 0.5; }
+
+#addexist{
+    cursor: pointer;  
+}
+#addexist:hover { opacity: 0.5; }
+#addUndo{
+    cursor: pointer;
+    
+}
+#addUndo:hover { opacity: 0.5; }
+
+#addRedo{
+    cursor: pointer;
+    
+}
+#addRedo:hover { opacity: 0.5; }
+
+#zoomIn{
+    cursor: pointer;
+    
+}
+#zoomIn:hover { opacity: 0.5; }
+
+#zoomOut{
+    cursor: pointer;
+    
+}
+#zoomOut:hover { opacity: 0.5; }
+
+#clearCanvas:hover { opacity: 0.5; }
+
+#fillCanvas{
+    float: right;
+    margin-left: 20px;
+    cursor: pointer;
+    
+}
+#fillCanvas:hover { opacity: 0.5; }
+
+#pencil{
+    cursor: pointer;
+    
+}
+#pencil:hover { opacity: 0.5; }
+
+#penciltime{
+    cursor: pointer;
+    
+}
+#penciltime:hover { opacity: 0.5; }
+
+#shape{
+    cursor: pointer;
+    
+}
+#shape:hover { opacity: 0.5; }
+
+#eraseall{
+    cursor: pointer;
+    
+}
+#eraseall:hover { opacity: 0.5; }
+
+#lock{
+    cursor: pointer;
+    
+}
+#lock:hover { opacity: 0.5; }
+
+#erasepart{
+    cursor: pointer;
+    
+}
+#erasepart:hover { opacity: 0.5; }
+
+#image{
+    cursor: pointer;
+    
+}
+#image:hover { opacity: 0.5; }
+
+
+#saveCanvas{
+    float: right;
+    margin-left: 30px;
+    cursor: pointer;
+    
+}
+#saveCanvas:hover { opacity: 0.5; }
+
+
+  /* تصميم مربع الحوار */
+  #dialog {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+/* تصميم حقل الإدخال */
+#filenameInput {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+/* تصميم زر التأكيد */
+#confirmFilename {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* تصميم زر الاغلاق */
+#cancelRecordingButton {
+    background-color: #8f959c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+
+
+  
+
+  .overlayfile{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    display: none;
+    position: fixed;
+    padding-left: 30px;
+    padding-top: 15px;
+    bottom: 0;
+    left: 40;
+    right: 0;
+    transition: opacity 500ms;
+    height: 83px;
+    width: 502px;
+    z-index: 1;
+    border-radius: 20px;
+    margin: 100px 100px;
+    background-color: #F6F6F6;
+  }
+
+  
+  .overlaytext{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    display: none;
+    position: fixed;
+    padding-left: 30px;
+    padding-top: 15px;
+    bottom: 0;
+    left: 40;
+    right: 0;
+    z-index: 1;
+    transition: opacity 500ms;
+    height: 364px;
+    width: 502px;
+    border-radius: 20px;
+    margin: 100px 220px;
+    background-color: #F6F6F6;
+  }
+
+ 
+
+  .overlaypdf h4{
+    text-align: center;
+    font-size: 20px;
+    font-weight: normal;
+  }
+  .overlaypdf{
+    direction: rtl;
+    z-index: 1;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: opacity 500ms;
+    height: 440px;
+    width: 1200px;
+    border-radius: 20px;
+    margin: 100px 150px;
+    background-color: #F6F6F6;
+  }
+  .overlayshape{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    display: none;
+    position: absolute;
+    padding-left: 30px;
+    padding-top: 15px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: opacity 500ms;
+    height: 364px;
+    width: 502px;
+    z-index: 1;
+    border-radius: 20px;
+    margin: 100px 520px;
+    background-color: #F6F6F6;
+  }
+  .overlaycolor{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: opacity 500ms;
+    height: 364px;
+    width: 502px;
+    z-index:1;
+    border-radius: 20px;
+    margin: 100px 720px;
+    background-color: #F6F6F6;
+  }
+  #brush{
+   margin-top: 20px;
+   margin-left: 40px;
+  }
+
+  #boxsize{
+  display: flex;
+  justify-content: space-evenly;
+
+  }
+  #size{
+  font-size: 20px;
+  position: relative;
+  bottom: 35px;
+  }
+  #brushSize{
+    width: 290px;
+    margin-right: 40px;
+    direction: rtl
+  }
+
+ 
+#boxcolor{
+  display: grid;
+  grid-template-columns: repeat(6, max-content);
+  justify-content: center;
+ row-gap: .4rem;
+ column-gap: .7rem;
+  position: relative;
+  bottom: 20px;
+  right: 60px;
+}
+
+#boxcolor1{
+    display: grid;
+    grid-template-columns: repeat(6, max-content);
+    justify-content: center;
+    gap: 1rem;
+    position: relative;
+    top: 5px;
+    right: 60px;
+  }
+  #color1{
+    font-size: 20px;
+    position: relative;
+    bottom: 200px;
+    left: 370px;
+ }
+
+ #boxcolor2{
+    width: 480px;
+    height: 60px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    position: relative;
+    padding-top: 10px;
+    top: 240px;
+    right: 15px;
+  }
+  #color2{
+    font-size: 20px;
+    position: relative;
+    bottom: 25px;
+    font-weight: normal;
+    right: 10px;
+ }
+
+#color{
+   font-size: 20px;
+   position: relative;
+   bottom: 200px;
+   left: 380px;
+}
+
+   .color-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    text-align: center;
+}
+
+
+
+
+
+
+.color-circle:hover {
+    opacity: 0.5;
+}
+
+  .toolbarpdf{
+    padding: 20px;
+    border-radius: 5px;
+    position: relative;
+    right: 50px;
+    transition: all 5s ease-in-out;
+  }
+
+
+  .custom-alert {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 762px;
+    height: 299px;
+    border-radius: 20px;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    z-index: 4; 
+}
+
+#grayBackground {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #707070; /* لون رمادي شفاف */
+    opacity: 20%;
+    z-index: 2; /* يجعل الخلفية أعلى من الكانفاس */
+}
+
+.custom-alert p {
+    margin-bottom: 10px;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.custom-alert #text {
+    margin-right: 10px;
+    margin-top: 26px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #D90000;
+}
+
+#confirmExit {
+    margin-top: 35px;
+    color: #D90000;
+    border: 2px solid #D90000 ;
+    border-radius: 10px;
+    padding: 9px 53px;
+    font-size: 30px;
+    font-weight: bold;
+    background-color: #FFBCBC;
+    cursor: pointer;
+    margin-left: 217px;
+}
+#cancelExit {
+    margin-top: 35px;
+    color: #36B673;
+    border: 1px solid #36B673 ;
+    border-radius: 10px;
+    padding: 9px 53px;
+    font-size: 30px;
+    font-weight: bold;
+    background-color: #C7FFE2;
+    cursor: pointer;
+}
+
+.custom-alert button:hover {
+    background-color: #0056b3;
+}
+
+/* .number {
+    display: flex;
+} */
+
+/* Style the minus and plus buttons */
+.minus, .plus {
+    background-color: #F6F6F6;
+    border-radius: 25px;
+    color: black;
+    padding: 10px 10px;
+    cursor: pointer;
+}
+
+.minus{
+position: relative;
+left: 40px;
+}
+
+.plus{
+    position: relative;
+    right: 40px;
+    }
+
+/* Style the input number */
+#counterInput {
+    width: 40px; /* Set the width to your desired value */
+    text-align: center;
+    border: none; /* Center-align the text */
+    font-size: 20px;
+    position:relative;
+    margin: 0 10px; /* Add margin for spacing */
+}
+.counter2{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 480px;
+    height: 60px;
+    border-radius: 20px;
+    background-color:white ;
+    position: absolute;
+    top: 250px;
+   }
+.counter{
+ display: flex;
+ align-items: center;
+ justify-content: space-evenly;
+ width: 480px;
+ height: 60px;
+ border-radius: 20px;
+ background-color:white ;
+ position: absolute;
+ top: 175px;
+}
+
+.counter1{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 480px;
+    height: 60px;
+    border-radius: 20px;
+    background-color:white ;
+    position: absolute;
+    top: 100px;
+}
+.counter1 select{
+    direction: rtl;
+    border: none;
+    font-size: 20px;
+    width: 400px;
+}
+
+.counter1 select:focus {
+    outline:none;
+}
+
+.counter1 select option{
+    font-size: 20px;
+    width: 400px;
+}
+
+#sizetext{
+ font-size: 20px;
+ position: relative;
+ left: 20px;
+}
+
+
+ /* Styles for modal overlay */
+
+        /* Styles for the modal content */
+
+        #linkModal {
+            display: none;
+            position: fixed;
+            top: 40%;
+            left: 50%;
+            border-radius: 20px;
+            transform: translate(-50%, -50%);
+            background-color: #FFFFFF;
+            width: 600px;
+            height: 300px;
+            padding: 60px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 4;
+        }
+        
+        #linkModal h4{
+           font-size: 25px;
+           text-align: center;
+           position: relative;
+           bottom: 70px;
+        }
+        #linkModal h3{
+           font-size: 25px;
+           text-align: center;
+           position: relative;
+           bottom: 90px;
+        }
+        /* Style for the close button */
+        .close-btn {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        /* Style for form fields and button */
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        /* Style for the Save button */
+        .save-btn {
+            color: #14C03C;
+            border: none;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            position: relative;
+            bottom: 360px;
+            right: 40px;
+        }
+        .save-btn:hover {
+            text-decoration: none;
+            color: #14C03C;
+        }
+        /* Style for input fields */
+        .form-control input[type=text] {
+            width: 550px;
+            height: 70px;
+            border-radius: 15px;
+            font-size: 25px;
+            padding: 10px;
+            background-color: #F2F2F2;
+            border: none;
+            direction: rtl;
+        }
+        .form-control input[type=text]:focus {
+            outline: none;
+        }
+        #formtitle{
+            position: relative;
+            right: 30px;
+            bottom: 80px;
+        }
+        #formlink{
+            position: relative;
+            right: 30px;
+            bottom: 100px;
+        }
+        .page-preview-container{
+            overflow-x: auto;
+            overflow-y: auto;
+            white-space: nowrap;
+            padding-left: 20px;
+        }
+        .page-preview-container h5{
+            text-align: center;
+            font-size: 20px;
+            position: relative;
+            bottom: 200px;
+            left: 540px;
+            font-weight: normal;
+        }
+        .page-preview {
+            display: inline-block;
+            position: relative;
+            right: 80px;
+            margin: 1px 10px;
+            border: 4px solid #B3B3B3;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        .page-number {
+            font-weight: bold;
+            font-size: 15px;
+            text-align: center;
+            color: #383838;
+            display: inline-block;
+            position: absolute;
+            right: 100px;
+            bottom:0px;
+        }
+        /* Style for the selected page preview */
+        .selected {
+            border: 4px solid #36B673;
+            border-radius: 10px;
+        }
+
+        
+
+        #addPageButton{
+         border: none;
+         cursor: pointer;
+         font-size: 20px;
+         color: #36B673;
+         position: relative;
+         bottom: 480px;
+         right:1130px;
+        }
+
+
+          .page-number {
+            font-weight: bold;
+        }
+
+        .custom-slider-container {
+            width: 237px;
+            position: relative;
+            top: 50px;
+            left: 5px;
+        }
+
+        /* Style for the custom slider track */
+        .custom-slider {
+            flex-grow: 1;
+            height: 10px;
+            background-color: #ccc;
+            position: relative;
+            border-radius: 5px;
+        }
+
+        /* Style for the custom slider knob (circle) */
+        .slider-knob {
+            width: 20px;
+            height: 20px;
+            background-color: #36B673;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            border: 2px solid white;
+            cursor: pointer;
+            transform: translate(-50%, -50%);
+        }
+        #close{
+            font-size: 20px;
+            font-weight: bold;
+            color: #B3B3B3;
+            position: relative;
+            bottom: 15px;
+            right: 15px;
+        }
+
+
+        /* Add more styling as needed */
+
+      /* Style for the custom slider container */
+      .custom-slider-container {
+        width: 337px;
+        position: relative;
+        display: flex;
+        top: 5px;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    #endTime{
+     color: #36B673;
+     font-size: 15px;
+     font-weight: bold;
+    }
+    #startTime{
+        color: #36B673;
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    #driver{
+        position: relative;
+        left: 35%;
+        height: 5px;
+        bottom: 10px;
+        border-radius: 10px;
+        width: 80px;
+        background-color: #B3B3B3;
+    }
+    .overlayaudio{
+        display: none;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        position: absolute;
+        padding-left: 30px;
+        padding-top: 15px;
+        bottom: 10;
+        left: 0;
+        right: 0;
+        transition: opacity 500ms;
+        height: 143px;
+        width: 382px;
+        z-index: 1;
+        border-radius: 20px;
+        background-color: #F6F6F6;
+    }
+
+    /* Style for the custom slider track */
+    .custom-slider {
+        flex-grow: 1;
+        height: 10px;
+        background-color: #ccc;
+        position: relative;
+        border-radius: 5px;
+    }
+
+    /* Style for the custom slider knob (circle) */
+    .slider-knob {
+        width: 20px;
+        height: 20px;
+        background-color: #36B673;
+        border-radius: 50%;
+        position: absolute;
+        border: 1px solid white;
+        top: 50%;
+        cursor: pointer;
+        transform: translate(-50%, -50%);
+    }
+
+    /* Style for the audio controls */
+    #audio-controls {
+      position: relative;
+      display: flex;
+      top: 5px;
+      left: 45px;
+    }
+
+    /* Add more styling as needed */
+
+    /* Style for slider background */
+    .slider-bg {
+        position: absolute;
+        height: 100%;
+        background: linear-gradient(to right, #36B673 0%, #36B673 0%);
+        border-radius: 5px;
+        pointer-events: none;
+    }
+    #playButton{
+    position: relative;
+    cursor: pointer;
+    bottom: 10px;
+    margin: 0px 5px;
+    
+    }
+    #pauseButton{
+    cursor: pointer;
+    position: relative;
+    bottom: 10px;
+    margin: 0px 5px;
+    display: none;
+    }
+
+        #excelSheetsContainer {
+            display: flex;
+            position: relative;
+            overflow-x: auto;
+            flex-wrap: nowrap;
+            bottom: 10px;
+        }
+
+        .sheet {
+            display: inline-block;
+            width: 170px;
+            position: relative;
+            right: 80px;
+            bottom: 5px;
+            margin: 5px 10px;
+            height: 190px;
+            border: 4px solid #B3B3B3;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        .sheet.selected {
+            border: 4px solid #36B673;
+            border-radius: 10px;
+        }
+
+        .overlayexcel h4{
+            text-align: center;
+            font-size: 20px;
+            font-weight: normal;
+          }
+          .overlayexcel{
+            direction: rtl;
+            z-index: 1;
+            display: none;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            transition: opacity 500ms;
+            height: 300px;
+            width: 1200px;
+            border-radius: 20px;
+            margin: 100px 150px;
+            background-color: #F6F6F6;
+          }
+
+          .overlayexcel h5{
+            text-align: center;
+            font-size: 20px;
+            position: absolute;
+            bottom: 90px;
+            right: 20px;
+            font-weight: normal;
+        }
+        #renderButton{
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            color: #36B673;
+            position: relative;
+            bottom: 60px;
+            right:1140px;
+        }
